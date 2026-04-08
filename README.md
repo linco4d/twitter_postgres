@@ -1,6 +1,6 @@
 # Twitter in Postgres
-[![](https://github.com/mikeizbicki/twitter_postgres/workflows/tests_denormalized/badge.svg)](https://github.com/mikeizbicki/twitter_postgres/actions?query=workflow%3Atests)
-[![](https://github.com/mikeizbicki/twitter_postgres/workflows/tests_normalized/badge.svg)](https://github.com/mikeizbicki/twitter_postgres/actions?query=workflow%3Atests)
+[![](https://github.com/linco4d/twitter_postgres/workflows/tests_denormalized/badge.svg)](https://github.com/linco4d/twitter_postgres/actions?query=workflow%3Atests)
+[![](https://github.com/linco4d/twitter_postgres/workflows/tests_normalized/badge.svg)](https://github.com/linco4d/twitter_postgres/actions?query=workflow%3Atests)
 
 You will repeat the Twitter/MapReduce assignment using Postgres.
 Because this assignment will involve many new programming concepts,
@@ -74,7 +74,7 @@ In this first assignment, we will focus on:
 
 ## Submission
 
-Upload a link to your forked github repo on sakai
+Upload a link to your forked github repo on canvas
 
 > **GRADING:**
 > There are 9 total test cases in the `sql` folder.
