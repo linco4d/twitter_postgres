@@ -1,18 +1,22 @@
 #!/bin/sh
 
-# list all of the files that will be loaded into the database
-# for the first part of this assignment, we will only load a small test zip file with ~10000 tweets
-# but we will write are code so that we can easily load an arbitrary number of files
+set -e
+
 files='
 test-data.zip
 '
 
+NORMALIZED_DB='postgresql://postgres:pass@localhost:1981/postgres'
+DENORMALIZED_DB='postgresql://postgres:pass@localhost:1076/postgres'
+
 echo 'load normalized'
 for file in $files; do
-    # call the load_tweets.py file to load data into pg_normalized
+    python3 load_tweets.py --db "$NORMALIZED_DB" --inputs "$file"
 done
 
 echo 'load denormalized'
 for file in $files; do
-    # use SQL's COPY command to load data into pg_denormalized
+    unzip -p "$file" \
+      | python3 -c "import sys; [sys.stdout.write(line.replace(r'\\u0000', '')) for line in sys.stdin]" \
+      | psql "$DENORMALIZED_DB" -c "\copy tweets_jsonb(data) FROM STDIN WITH (FORMAT csv, DELIMITER E'\t', QUOTE E'\b')"
 done
